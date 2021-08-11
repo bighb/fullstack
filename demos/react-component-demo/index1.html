@@ -1,24 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <script src="react.js"></script>
-    <script src="react-dom.js"></script>
-    <script src="babel.min.js"></script>
-  </head>
-  <body>
-    <div id="example"></div>
-    <script type="text/babel">
-  class MyTitle extends React.Component {
-    render() {
-      return <h1>Hello World</h1>;
-    }
-  };
 
-  ReactDOM.render(
-    <MyTitle/>,
-    document.getElementById('example')
-  );
-    </script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <script src="react.js"></script>
+  <script src="react-dom.js"></script>
+  <script src="babel.min.js"></script>
+</head>
+
+<body>
+  <div id="example"></div>
+  <div id="example2"></div>
+
+  <script type="text/babel">
+    function age(user) {
+      return user.old + user.newer
+    }
+    class MyTitle extends React.Component {
+      render() {
+        return <h1>{age({
+          old: 1,
+          newer: 2
+        })}</h1>;
+      }
+    };
+    class MyName extends React.Component {
+      render() {
+        return <div>
+          <h2>阮一峰</h2>
+        </div>
+      }
+    }
+
+    ReactDOM.render(
+      <MyName />,
+
+      document.getElementById('example')
+    );
+    ReactDOM.render(
+      <MyTitle />,
+
+      document.getElementById('example2')
+    );
+  </script>
+</body>
+
 </html>

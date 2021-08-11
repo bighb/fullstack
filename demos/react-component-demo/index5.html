@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+    <script src="babel.min.js"></script>
+</head>
+
+<body>
+    <div id="example"></div>
+    <div id="example2"></div>
+
+    <script type="text/babel">
+        const arr = ['阮一峰', '张三']
+        class MyList extends React.Component {
+            handleClick(params) {
+                console.log('params: ', params);
+
+            }
+            render() {
+                return <ul>
+                    {
+                        this.props.arr.map((e, index) => {
+                            return <li key={index} onClick={this.handleClick} >{e}</li>
+                        })
+                    }
+
+                </ul>
+            }
+        };
+
+        ReactDOM.render(
+            <MyList arr={arr} />,
+            document.getElementById('example')
+        );
+    </script>
+</body>
+
+</html>
